@@ -1,4 +1,4 @@
-resource "baremetal_core_instance" "TFInstance" {
+resource "baremetal_core_instance" "SpinnakerBMCInstance" {
   availability_domain = "${lookup(data.baremetal_identity_availability_domains.ADs.availability_domains[var.AD - 1],"name")}" 
   compartment_id = "${var.compartment_ocid}"
   display_name = "spinnaker"
@@ -10,7 +10,6 @@ resource "baremetal_core_instance" "TFInstance" {
     ssh_authorized_keys = "${var.ssh_public_key}"
     user_data = "${base64encode(file(var.BootStrapFile))}"
   }
-
   timeouts {
     create = "60m"
   }
