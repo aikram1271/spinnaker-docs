@@ -3,7 +3,7 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
   compartment_id = "${var.compartment_ocid}"
   display_name = "spinnaker"
   hostname_label = "spinnaker"
-  image = "${lookup(data.baremetal_core_images.OLImageOCID.images[0], "id")}"
+  image = "ocid1.image.oc1.phx.aaaaaaaak2idogwetkehtdvo7m673ojuucpfxhybd3ehun7izzgjqi4c4gga"
   shape = "${var.InstanceShape}"
   subnet_id = "${var.SubnetOCID}"
   metadata {
