@@ -13,14 +13,14 @@ variable "ssh_public_key" {
 variable "ssh_private_key" {
 }
 
-variable "SubnetOCID" {
+variable "subnetOCID" {
 }
-variable "AD" {
+variable "ad" {
     default = "1"
 }
-variable "InstanceShape" {
+variable "shape" {
     default = "VM.Standard1.16"
 }
-variable "BootStrapFile" {
-    default = "./userdata/bootstrap"
+variable "userdata" {
+    default = "./spinnaker/userdata/bootstrap"
 }
