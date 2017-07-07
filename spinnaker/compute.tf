@@ -16,9 +16,10 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
   provisioner "remote-exec" {
     script = "spinnaker/userdata/bootstrap"
     connection {
-      type     = "ssh"
-      user     = "ubuntu"
-      host     = "${data.baremetal_core_vnic.InstanceVnic.public_ip_address}"
+      host = "${self.public_ip}"
+      type = "ssh"
+      user = "ubuntu"
+      private_key = "${file(var.ssh_private_key)}"
     }
   }
   
