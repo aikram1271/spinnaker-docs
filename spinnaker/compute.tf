@@ -15,7 +15,7 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
   }
   
   provisioner "remote-exec" {
-    script = "userdata/bootstrap"
+    script = "spinnaker/userdata/bootstrap"
     connection {
       type     = "ssh"
       user     = "ubuntu"
@@ -23,7 +23,7 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
   }
   
   provisioner "file" {
-    source      = "conf/spinanker-local.yml"
+    source      = "spinnaker/conf/spinanker-local.yml"
     destination = "/opt/spinnaker/conf/spinnaker-local.yml"
 
     connection {
