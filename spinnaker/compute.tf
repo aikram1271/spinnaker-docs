@@ -16,6 +16,10 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
   
   provisioner "remote-exec" {
     script = "userdata/bootstrap"
+    connection {
+      type     = "ssh"
+      user     = "ubuntu"
+    }
   }
   
   provisioner "file" {
