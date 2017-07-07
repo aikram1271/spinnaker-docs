@@ -7,7 +7,7 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
   shape = "${var.shape}"
   subnet_id = "${var.subnetOCID}"
   metadata {
-    ssh_authorized_keys = "${var.ssh_public_key}"
+    ssh_authorized_keys = "${file(var.ssh_public_key)}"
   }
   timeouts {
     create = "60m"
@@ -26,10 +26,11 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
   provisioner "file" {
     source      = "spinnaker/conf/spinanker-local.yml"
     destination = "/opt/spinnaker/conf/spinnaker-local.yml"
-
     connection {
-      type     = "ssh"
-      user     = "ubuntu"
+      host = "${self.public_ip}"
+      type = "ssh"
+      user = "ubuntu"
+      private_key = "${file(var.ssh_private_key)}"
     }
   }
 }
