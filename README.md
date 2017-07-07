@@ -2,6 +2,8 @@
 
 A Terraform provisioner to deploy a Spinnaker instance on Oracle Bare Metal Cloud.
 
+> Requires both Terraform and [Terraform Provider Bare Metal](https://github.com/oracle/terraform-provider-baremetal) to be installed.
+
 ## Getting started
 
 You will need an Oracle Bare Metal account with associated credentials.
