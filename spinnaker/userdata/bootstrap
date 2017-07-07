@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -xe
+#!/usr/bin/env bash
 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,11 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PACKER_VERSION=0.12.2
-
-# Fixes current Oracle Ubuntu hostname bug
-
-echo $(hostname -I | cut -d\  -f1) $(hostname) | tee -a /etc/hosts
+PACKER_VERSION=1.0.2
 
 function install_packer() {
     mkdir -p /tmp/packer
@@ -31,11 +27,11 @@ function install_redis () {
     apt-get install -y redis-server
 }
 
-apt-get update
+apt update
 
 # Python 2 doesn't exist on Ubuntu 16 but is needed by Spinnaker
 
-apt-get install -y python-simplejson
+apt install -y python-simplejson
 
 # Install Redis
 # ==================================================
@@ -49,19 +45,19 @@ echo "deb https://dl.bintray.com/spinnaker/debians trusty spinnaker" > \
 curl -s -f "https://bintray.com/user/downloadSubjectPublicKey?username=spinnaker" | apt-key add -
 
 add-apt-repository -y ppa:openjdk-r/ppa
-apt-get update
-apt-get install -y \
-        openjdk-8-jdk \
-        spinnaker-clouddriver \
-        spinnaker-deck \
-        spinnaker-echo \
-        spinnaker-front50 \
-        spinnaker-gate \
-        spinnaker-igor \
-        spinnaker-orca \
-        spinnaker-rosco \
-        spinnaker \
-        unzip
+apt  update
+apt install -y \
+    openjdk-8-jdk \
+    spinnaker-clouddriver \
+    spinnaker-deck \
+    spinnaker-echo \
+    spinnaker-front50 \
+    spinnaker-gate \
+    spinnaker-igor \
+    spinnaker-orca \
+    spinnaker-rosco \
+    spinnaker \
+    unzip
 
 # Spinnaker init scripts
 # ==================================================
@@ -93,8 +89,8 @@ install_packer
 
 # Start and enable services
 # ==================================================
-for i in front50 fiat clouddriver echo gate igor orca rosco
+for svc in front50 fiat clouddriver echo gate igor orca rosco
 do
-    systemctl enable $i
-    systemctl start $i
+    systemctl enable $svc
+    systemctl start $svc
 done

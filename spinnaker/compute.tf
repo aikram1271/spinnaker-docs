@@ -1,8 +1,8 @@
 resource "baremetal_core_instance" "SpinnakerBMCInstance" {
   availability_domain = "${lookup(data.baremetal_identity_availability_domains.ADs.availability_domains[var.ad - 1],"name")}" 
   compartment_id = "${var.compartment_ocid}"
-  display_name = "spinnaker"
-  hostname_label = "spinnaker"
+  display_name = "spinnaker-terraform"
+  hostname_label = "spinnaker-terraform"
   image = "ocid1.image.oc1.phx.aaaaaaaak2idogwetkehtdvo7m673ojuucpfxhybd3ehun7izzgjqi4c4gga"
   shape = "${var.shape}"
   subnet_id = "${var.subnetOCID}"
@@ -13,4 +13,5 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
   timeouts {
     create = "60m"
   }
+
 }
