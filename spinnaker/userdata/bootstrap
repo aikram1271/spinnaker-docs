@@ -94,3 +94,6 @@ do
     systemctl enable $svc
     systemctl start $svc
 done
+
+iptables -A INPUT -p tcp --dport 9000 -j ACCEPT
+iptables -F
