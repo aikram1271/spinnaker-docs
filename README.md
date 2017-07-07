@@ -12,9 +12,6 @@ Copy the environment variable sample file and update it with your information.
 
 ```
 cp env-vars.example env-vars
-
-# Update with your information
-
 source env-vars
 ```
 
