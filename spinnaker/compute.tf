@@ -18,6 +18,7 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
     connection {
       type     = "ssh"
       user     = "ubuntu"
+      host     = "${data.baremetal_core_vnic.InstanceVnic.public_ip_address}"
     }
   }
   
