@@ -14,6 +14,10 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
     create = "60m"
   }
   
+  provisioner "remote-exec" {
+    script = "scripts/bootstrap"
+  }
+  
   provisioner "file" {
     source      = "conf/spinanker-local.yml"
     destination = "/opt/spinnaker/conf/spinnaker-local.yml"
