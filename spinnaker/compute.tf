@@ -13,5 +13,14 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
   timeouts {
     create = "60m"
   }
+  
+  provisioner "file" {
+    source      = "conf/spinanker-local.yml"
+    destination = "/opt/spinnaker/conf/spinnaker-local.yml"
 
+    connection {
+      type     = "ssh"
+      user     = "ubuntu"
+    }
+  }
 }
