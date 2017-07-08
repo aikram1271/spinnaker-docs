@@ -1,33 +1,28 @@
-variable "tenancy_ocid" {
-}
-
-variable "user_ocid" {
-}
-
-variable "fingerprint" {
-}
-
-variable "private_key_path" {
-}
-
-variable "compartment_ocid" {
-}
+variable "tenancy_ocid" {}
+variable "user_ocid" {}
+variable "fingerprint" {}
+variable "private_key_path" {}
+variable "compartment_ocid" {}
+variable "subnetOCID" {}
 
 variable "ssh_public_key" {
+    description = "The path to your public key used to connect to the instance"
     default = "~/.ssh/id_rsa.pub"
 }
+
 variable "ssh_private_key" {
+    description = "The path to your private key used to connect to the instance"
     default = "~/.ssh/id_rsa"
 }
 
-variable "subnetOCID" {
-}
 variable "ad" {
     default = "1"
 }
+
 variable "shape" {
     default = "VM.Standard1.16"
 }
+
 variable "userdata" {
     default = "./spinnaker/userdata/bootstrap"
 }
