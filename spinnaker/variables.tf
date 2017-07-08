@@ -6,23 +6,21 @@ variable "compartment_ocid" {}
 variable "subnetOCID" {}
 
 variable "ssh_public_key" {
-    description = "The path to your public key used to connect to the instance"
-    default = "~/.ssh/id_rsa.pub"
+  description = "The path to your public key used to connect to the instance"
+  default = "~/.ssh/id_rsa.pub"
 }
 
 variable "ssh_private_key" {
-    description = "The path to your private key used to connect to the instance"
-    default = "~/.ssh/id_rsa"
+  description = "The path to your private key used to connect to the instance"
+  default = "~/.ssh/id_rsa"
 }
 
 variable "ad" {
-    default = "1"
+  description = "The availability domain in which to launch the Spinnaker instance"
+  default = "1"
 }
 
 variable "shape" {
-    default = "VM.Standard1.16"
-}
-
-variable "userdata" {
-    default = "./spinnaker/userdata/bootstrap"
+  descript = "The size for the main Spinnaker instance"
+  default = "VM.Standard1.16"
 }
