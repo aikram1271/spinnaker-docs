@@ -21,6 +21,6 @@ variable "ad" {
 }
 
 variable "shape" {
-  descript = "The size for the main Spinnaker instance"
+  description = "The size for the main Spinnaker instance"
   default = "VM.Standard1.16"
 }
