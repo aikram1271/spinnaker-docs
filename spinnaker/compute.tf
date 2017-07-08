@@ -21,6 +21,12 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
     private_key = "${file(var.ssh_private_key)}"
   }
   
+  provisioner "remote-exec" {
+    inline = [
+      "mkdir -p /tmp/terraform/"
+    ]
+  }
+  
   provisioner "file" {
     source = "spinnaker/scripts"
     destination = "/tmp/terraform"
