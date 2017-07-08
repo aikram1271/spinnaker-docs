@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-sudo su -
-
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -26,14 +24,14 @@ function install_packer() {
 }
 
 function install_redis () {
-    apt-get install -y redis-server
+    sudo apt install -y redis-server
 }
 
-apt update
+sudo apt update
 
 # Python 2 doesn't exist on Ubuntu 16 but is needed by Spinnaker
 
-apt install -y python-simplejson
+sudo apt install -y python-simplejson
 
 # Install Redis
 # ==================================================
@@ -44,11 +42,11 @@ install_redis
 echo "deb https://dl.bintray.com/spinnaker/debians trusty spinnaker" > \
      /etc/apt/sources.list.d/spinnaker.list
 
-curl -s -f "https://bintray.com/user/downloadSubjectPublicKey?username=spinnaker" | apt-key add -
+curl -s -f "https://bintray.com/user/downloadSubjectPublicKey?username=spinnaker" | sudo apt-key add -
 
-add-apt-repository -y ppa:openjdk-r/ppa
-apt  update
-apt install -y \
+sudo add-apt-repository -y ppa:openjdk-r/ppa
+sudo apt  update
+sudo apt install -y \
     openjdk-8-jdk \
     spinnaker-clouddriver \
     spinnaker-deck \
@@ -87,8 +85,8 @@ install_packer
 # ==================================================
 for svc in front50 fiat clouddriver echo gate igor orca rosco
 do
-    systemctl enable $svc
-    systemctl start $svc
+    sudo systemctl enable $svc
+    sudo systemctl start $svc
 done
 
 # The following will make Spinnaker available on port 9000 of the instance public IP.
