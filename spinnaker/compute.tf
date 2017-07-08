@@ -11,7 +11,7 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
   }
   
   timeouts {
-    create = "60m"
+    create = "20m"
   }
   
   connection {
