@@ -34,6 +34,7 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
   
   provisioner "remote-exec" {
     inline = [
+      "chmod a+x /tmp/terraform/scripts/install_spinnaker.sh",
       "sudo /tmp/terraform/scripts/install_spinnaker.sh"
     ]
   }
