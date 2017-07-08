@@ -9,28 +9,26 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
   metadata {
     ssh_authorized_keys = "${file(var.ssh_public_key)}"
   }
+  
   timeouts {
     create = "60m"
   }
   
-  provisioner "remote-exec" {
-    script = "spinnaker/userdata/bootstrap"
-    connection {
-      host = "${self.public_ip}"
-      type = "ssh"
-      user = "ubuntu"
-      private_key = "${file(var.ssh_private_key)}"
-    }
+  connection {
+    host = "${self.public_ip}"
+    type = "ssh"
+    user = "ubuntu"
+    private_key = "${file(var.ssh_private_key)}"
   }
   
   provisioner "file" {
-    source      = "spinnaker/conf/spinanker-local.yml"
-    destination = "/opt/spinnaker/conf/spinnaker-local.yml"
-    connection {
-      host = "${self.public_ip}"
-      type = "ssh"
-      user = "ubuntu"
-      private_key = "${file(var.ssh_private_key)}"
-    }
+    source = "spinnaker/scripts"
+    destination = "/tmp/terraform"
+  }
+  
+  provisioner "remote-exec" {
+    inline = [
+      "sudo /tmp/terraform/install_spinnaker.sh"
+    ]
   }
 }
