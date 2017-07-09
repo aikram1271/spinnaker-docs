@@ -48,6 +48,10 @@ iptables -F
 2. Enable upload of custom config file
 
 
+## TODO
+
+Configure for production using NGINX
+
 Notes
 
 ```
