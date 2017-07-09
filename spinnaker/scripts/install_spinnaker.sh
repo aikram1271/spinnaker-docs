@@ -88,3 +88,8 @@ do
     systemctl enable $svc
     systemctl start $svc
 done
+
+# Update Apache to expose Deck UI
+echo "Listen 0.0.0.0:9000" >> /etc/apache2/ports.conf
+sed -i 's#VirtualHost 127.0.0.1:9000#VirtualHost 0.0.0.0:9000#g' /etc/apache2/sites-enabled/spinnaker.conf
+service apache2 restart
