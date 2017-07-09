@@ -38,4 +38,9 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
       "sudo /tmp/terraform/scripts/install_spinnaker.sh"
     ]
   }
+  
+  provisioner "file" {
+    source = "spinnaker/config/spinnaker-local.yml"
+    destination = "/opt/spinnaker/config/spinnaker-local.yml"
+  }
 }
