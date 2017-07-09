@@ -46,3 +46,14 @@ iptables -F
 
 1. Create the network
 2. Enable upload of custom config file
+
+
+Notes
+
+```
+To reconfigure a production spinnaker:
+    (1) sudo /opt/spinnaker/scripts/stop_spinnaker.sh
+    (2) edit /root/.spinnaker/spinnaker_config.cfg  (must be root)
+    (3) sudo /opt/spinnaker/scripts/reconfigure_spinnaker.sh
+    (4) sudo /opt/spinnaker/scripts/start_spinnaker.sh
+```
