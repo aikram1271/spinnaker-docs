@@ -27,6 +27,10 @@ Destroy it
 terraform destroy spinnaker
 ```
 
+## Configuration
+
+You can edit spinnaker/config/spinnaker-local.yml with your specific configuration and it will be installed automatically.
+
 ## TODO
 
 1. Create the network
