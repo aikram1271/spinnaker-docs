@@ -31,6 +31,17 @@ terraform destroy spinnaker
 
 You can edit spinnaker/config/spinnaker-local.yml with your specific configuration and it will be installed automatically.
 
+## FAQ
+
+#### How do I expose Spinnaker port 9000 to a public IP?
+
+This is generally not recommended unless you're Spinnaker instance is secure. If you do want to expose Spinnaker run the following to update IP Tables exposing port 9000 or your Oracle Bare Metal Ubuntu instance.
+
+```
+iptables -A INPUT -p tcp --dport 9000 -j ACCEPT
+iptables -F
+```
+
 ## TODO
 
 1. Create the network
