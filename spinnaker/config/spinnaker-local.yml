@@ -15,20 +15,28 @@ global:
   spinnaker:
     timezone: 'America/Los_Angeles'
 
+oraclebmcs:
+  enabled: true
+  accounts:
+    - name: XXX
+      compartmentId: 'XXX'
+      userId: 'XXX'
+      fingerprint: 'XXX'
+      sshPrivateKeyFilePath: '/home/spinnaker/.oraclebmc/bmcs_api_key.pem'
+      tenancyId: 'XXX'
+      region: 'us-phoenix-1'
+
 providers:
-  # See http://www.spinnaker.io/v1.0/docs/target-deployment-setup
-  # for general information about configuring spinnaker platform providers.
-
-  # Each of the following providers can be enabled independent of all other
-  # providers unless otherwise noted.
-  #
-  # Each provider can be enabled by setting its 'enabled' attribute to true.
-  # As a rule of thumb, each provider defines a 'primaryCredentials' block
-  # that configures a default account for Spinnaker to use on that platform.
-  # If additional accounts are desired, then add those accounts to a
-  # custom clouddriver-local.yml file and consult clouddriver.yml for more
-  # information on what to add there.
-
+  oraclebmcs:
+    enabled: true
+    accounts:
+      - name: bristoldev
+        compartmentId: 'XXX'
+        userId: 'XXX'
+        fingerprint: 'XXX'
+        sshPrivateKeyFilePath: '/home/spinnaker/.oraclebmc/bmcs_api_key.pem'
+        tenancyId: 'XXX'
+        region: 'us-phoenix-1'
   aws:
     enabled: ${SPINNAKER_AWS_ENABLED:false}
   azure:
