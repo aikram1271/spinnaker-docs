@@ -174,9 +174,9 @@ services:
 
   front50:
     cassandra:
-      enabled: true
-    redis:
       enabled: false
+    redis:
+      enabled: true
     storage_bucket: ${SPINNAKER_DEFAULT_STORAGE_BUCKET:}
     gcs:
       enabled: false
