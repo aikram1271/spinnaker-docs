@@ -18,25 +18,16 @@ global:
 oraclebmcs:
   enabled: true
   accounts:
-    - name: XXX
+    - name: example
       compartmentId: 'XXX'
       userId: 'XXX'
       fingerprint: 'XXX'
       sshPrivateKeyFilePath: '/home/spinnaker/.oraclebmc/bmcs_api_key.pem'
       tenancyId: 'XXX'
       region: 'us-phoenix-1'
+  primaryAccount: example
 
 providers:
-  oraclebmcs:
-    enabled: true
-    accounts:
-      - name: bristoldev
-        compartmentId: 'XXX'
-        userId: 'XXX'
-        fingerprint: 'XXX'
-        sshPrivateKeyFilePath: '/home/spinnaker/.oraclebmc/bmcs_api_key.pem'
-        tenancyId: 'XXX'
-        region: 'us-phoenix-1'
   aws:
     enabled: ${SPINNAKER_AWS_ENABLED:false}
   azure:
