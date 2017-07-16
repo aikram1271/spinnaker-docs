@@ -45,8 +45,9 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
       "chmod a+x /tmp/terraform/scripts/install_spinnaker.sh",
       "sudo /tmp/terraform/scripts/install_spinnaker.sh",
       "sudo mv /tmp/spinnaker-local.yml /opt/spinnaker/config/",
-      "sudo mkdir -p /home/spinnaker/.oraclebmcs",
-      "sudo mv /tmp/bmcs_api_key.pem /home/spinnaker/.oraclebmcs/"
+      "sudo mkdir -p /home/spinnaker/.oraclebmc",
+      "sudo mv /tmp/bmcs_api_key.pem /home/spinnaker/.oraclebmc/",
+      "sudo chown -R spinnaker:spinnaker /home/spinnaker/.oraclebmc/"
     ]
   }
 }
