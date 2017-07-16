@@ -1,3 +1,4 @@
 env-vars
 *.tfstate
 *tfstate*
+spinnaker/config/spinnaker-local.yml
