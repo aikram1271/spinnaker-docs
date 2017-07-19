@@ -15,7 +15,7 @@ $ sudo apt update
 $ curl -O https://raw.githubusercontent.com/spinnaker/halyard/master/install/stable/InstallHalyard.sh
 $ sudo bash InstallHalyard.sh
 
-$  hal config provider oraclebmcs enable
+$ hal config provider oraclebmcs enable
 
 $ hal config provider oraclebmcs account add default \
 --compartment-id "ocid1.compartment.oc1..XXX" \
