@@ -21,20 +21,6 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
     private_key = "${file(var.ssh_private_key)}"
   }
 
-  provisioner "remote-exec" {
-    inline = [
-      "mkdir -p /tmp/terraform/"
-    ]
-  }
-
-  provisioner "file" {
-    source = "spinnaker/scripts"
-    destination = "/tmp/terraform"
-  }
-  provisioner "file" {
-    source = "spinnaker/config/spinnaker-local.yml"
-    destination = "/tmp/spinnaker-local.yml"
-  }
   provisioner "file" {
     source = "${var.private_key_path}"
     destination = "/tmp/bmcs_api_key.pem"
@@ -42,12 +28,17 @@ resource "baremetal_core_instance" "SpinnakerBMCInstance" {
 
   provisioner "remote-exec" {
     inline = [
-      "chmod a+x /tmp/terraform/scripts/install_spinnaker.sh",
-      "sudo /tmp/terraform/scripts/install_spinnaker.sh",
-      "sudo mv /tmp/spinnaker-local.yml /opt/spinnaker/config/",
-      "sudo mkdir -p /home/spinnaker/.oraclebmc",
-      "sudo mv /tmp/bmcs_api_key.pem /home/spinnaker/.oraclebmc/",
-      "sudo chown -R spinnaker:spinnaker /home/spinnaker/.oraclebmc/"
+      "curl -O https://raw.githubusercontent.com/spinnaker/halyard/master/install/stable/InstallHalyard.sh",
+      "sudo bash InstallHalyard.sh",
+      
+      "hal config provider oraclebmcs enable",
+      
+      "hal config provider oraclebmcs account add default \",
+      "--compartment-id 'ocid1.compartment.oc1..XXX' \",
+      "--region 'us-phoenix-1' \",
+      "",
+      "",
+      
     ]
   }
 }
