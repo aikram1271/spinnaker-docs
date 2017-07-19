@@ -5,7 +5,7 @@ The following guide will show you how to manually install and configure Spinnake
 ## Using Halyard
 
 We recommend Halyard for installing and configuring Spinnaker. Provided you have a set of BMCS API credentials, 
-the following will install Spinnaker on your Bare Metal Account. 
+the following steps will install Spinnaker on your Bare Metal Account. 
 
 Halyard and Spinnaker (currently) only work with Ubuntu 14.04
 
