@@ -1,4 +1,6 @@
-# Install and configure Spinnaker for Oracle Bare Metal Cloud
+# Install Spinnaker on Oracle Bare Metal Cloud
+
+The following guide will show you how to manually install and configure Spinnaker running on Oracle BMCS.
 
 ## Using Halyard
 
