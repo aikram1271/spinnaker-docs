@@ -2,6 +2,20 @@
 
 The following guide will show you how to manually install and configure Spinnaker running on Oracle BMCS.
 
+Setup
+
+You will need an bmcs_api_key.pem file and an Ubuntu 14.04 instance. Create your Ubuntu instance using the BMCS UI and copy your API onto the machine.
+
+```
+$ scp -r ~/.oraclebmc/ ubuntu@PUBLIS_IP:/home/ubuntu/
+```
+
+Then connect to your instance and use Halyard to install Spinnaker.
+
+```
+$ ssh ubuntu@PUBLIC_IP
+```
+
 ## Using Halyard
 
 We recommend Halyard for installing and configuring Spinnaker. Provided you have a set of BMCS API credentials, 
