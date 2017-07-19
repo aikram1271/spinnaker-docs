@@ -60,29 +60,6 @@ $ hal config storage edit --type oraclebmcs
 $ sudo hal deploy apply
 ```
 
-## Getting started
-
-You will need an Oracle Bare Metal account with associated credentials.
-
-Copy the environment variable sample file and update it with your information.
-
-```
-cp env-vars.example env-vars
-source env-vars
-```
-
-Create a Spinnaker instance on Oracle Bare Metal
-
-```
-terraform apply spinnaker
-```
-
-Destroy it
-
-```
-terraform destroy spinnaker
-```
-
 ## FAQ
 
 #### How do I expose Spinnaker port 9000 to a public IP?
