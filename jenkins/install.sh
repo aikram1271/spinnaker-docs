@@ -1,7 +1,11 @@
-wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+#!/usr/bin/env bash
 
-echo deb http://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list
+wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | apt-key add -
+echo deb http://pkg.jenkins.io/debian-stable binary/ | tee /etc/apt/sources.list.d/jenkins.list
+apt update
+apt install -y jenkins
 
-sudo apt update
+ufw allow 8080
 
-sudo apt install -y jenkins
+iptables -A INPUT -p tcp --dport 9000 -j ACCEPT
+iptables -F
