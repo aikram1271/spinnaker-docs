@@ -7,5 +7,5 @@ apt install -y jenkins
 
 ufw allow 8080
 
-iptables -A INPUT -p tcp --dport 9000 -j ACCEPT
+iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
 iptables -F
