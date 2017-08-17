@@ -7,7 +7,7 @@ The following guide will show you how to manually install and configure Spinnake
 You will need an bmcs_api_key.pem file and an Ubuntu 14.04 instance. Create your Ubuntu instance using the BMCS UI and copy your API onto the machine.
 
 ```
-$ scp -r ~/.oraclebmc/ ubuntu@PUBLIS_IP:/home/ubuntu/
+$ scp -i ~/Keys/spinnaker ~/.oraclebmc/bmcs_api_key.pem ubuntu@PUBLIC_IP:/home/ubuntu/
 ```
 
 Then connect to your instance and use Halyard to install Spinnaker.
