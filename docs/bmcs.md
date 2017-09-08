@@ -1,10 +1,15 @@
-# Install Spinnaker on Oracle Bare Metal Cloud
+# Configure the oraclebmcs provider with Spinnaker
 
-The following guide will show you how to manually install and configure Spinnaker running on Oracle BMCS.
+The following guide will show you how to manually install and configure the oraclebmcs provider for Spinnaker.
+
+## Prerequisites
+
+* An Oracle BMCS account with credentials (including a bmcs_api_key.pem file)
+* An Ubuntu 14.04 machine running on BMCS
 
 ## Setup
 
-You will need an bmcs_api_key.pem file and an Ubuntu 14.04 instance. Create your Ubuntu instance using the BMCS UI and copy your API onto the machine.
+Copy your API key onto the machine
 
 ```
 $ scp -i ~/Keys/spinnaker ~/.oraclebmc/bmcs_api_key.pem ubuntu@PUBLIC_IP:/home/ubuntu/
