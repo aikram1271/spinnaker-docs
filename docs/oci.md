@@ -36,7 +36,7 @@ sudo bash InstallHalyard.sh
 
 hal config version edit --version=1.1.1
 
-hal config provider oraclebmcs enable
+hal config provider oci enable
 
 hal config provider oraclebmcs account add DEFAULT \
 --compartment-id "ocid1.compartment.oc1..XXX" \
