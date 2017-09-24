@@ -38,7 +38,7 @@ hal config version edit --version=1.1.1
 
 hal config provider oci enable
 
-hal config provider oraclebmcs account add DEFAULT \
+hal config provider oci account add DEFAULT \
 --compartment-id "ocid1.compartment.oc1..XXX" \
 --region "us-phoenix-1" \
 --ssh-private-key-file-path "/home/ubuntu/oci_api_key.pem" \
@@ -46,7 +46,7 @@ hal config provider oraclebmcs account add DEFAULT \
 --user-id "ocid1.user.oc1..XXX" \
 --fingerprint "a4:bb:34:43:54:c5..."
 
-hal config storage oraclebmcs edit \
+hal config storage oci edit \
 --bucket-name "spinnaker" \
 --compartment-id "ocid1.compartment.oc1..XXX" \
 --fingerprint "a4:bb:34:43:54:c5..." \
