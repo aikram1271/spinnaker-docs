@@ -18,3 +18,11 @@ hal config security api edit \
     
 sudo hal deploy apply
 ```
+
+On many setups you'll need to ensure firewall ports are open. For example
+
+```
+sudo iptables -A INPUT -p tcp --dport 9000 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 8084 -j ACCEPT
+sudo iptables -F
+```
