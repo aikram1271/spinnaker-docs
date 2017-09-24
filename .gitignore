@@ -2,3 +2,4 @@ env-vars
 *.tfstate
 *tfstate*
 spinnaker/config/spinnaker-local.yml
+*DS_Store
