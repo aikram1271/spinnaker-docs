@@ -20,6 +20,8 @@ sudo hal deploy apply
 ```
 
 On many setups you'll need to ensure firewall ports are open. For example
+an Oracle OCI Ubuntu 14.04 instance will need the following iptables rules set
+as well as having 9000 and 8084 open in the security list for your VCN.
 
 ```
 sudo iptables -A INPUT -p tcp --dport 9000 -j ACCEPT
