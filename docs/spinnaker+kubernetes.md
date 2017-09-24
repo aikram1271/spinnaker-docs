@@ -2,7 +2,7 @@
 
 This guide will show you how to configure Spinnaker to deploy to Kubernetes on OCI.
 
-![](images/kube.png)
+![](spinnaker-docs/images/kube.png)
 
 ### Prerequisites 
 
