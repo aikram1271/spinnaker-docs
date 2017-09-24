@@ -1,18 +1,18 @@
-# Configure the oraclebmcs provider with Spinnaker
+# Install Spinnaker with the OCI cloud provider
 
-The following guide will show you how to manually install and configure the oraclebmcs provider for Spinnaker.
+The following guide will show you how to manually install and configure the OCI cloud provider for Spinnaker.
 
 ## Prerequisites
 
-* An Oracle BMCS account with credentials (including a bmcs_api_key.pem file)
-* An Ubuntu 14.04 machine running on BMCS
+* An OCI account with credentials (including an oci_api_key.pem file)
+* An Ubuntu 14.04 machine running on OCI
 
 ## Setup
 
 Copy your API key onto the machine
 
 ```
-$ scp -i ~/Keys/spinnaker ~/.oraclebmc/bmcs_api_key.pem ubuntu@PUBLIC_IP:/home/ubuntu/
+$ scp -i ~/Keys/spinnaker ~/.oci/oci_api_key.pem ubuntu@PUBLIC_IP:/home/ubuntu/
 ```
 
 Then connect to your instance and use Halyard to install Spinnaker.
@@ -41,7 +41,7 @@ $ hal config provider oraclebmcs enable
 $ hal config provider oraclebmcs account add DEFAULT \
 --compartment-id "ocid1.compartment.oc1..XXX" \
 --region "us-phoenix-1" \
---ssh-private-key-file-path "/home/ubuntu/bmcs_api_key.pem" \
+--ssh-private-key-file-path "/home/ubuntu/oci_api_key.pem" \
 --tenancyId "ocid1.tenancy.oc1..XXX" \
 --user-id "ocid1.user.oc1..XXX" \
 --fingerprint "a4:bb:34:43:54:c5..."
@@ -52,11 +52,11 @@ $ hal config storage oraclebmcs edit \
 --fingerprint "a4:bb:34:43:54:c5..." \
 --namespace "spinnaker" \
 --region "us-phoenix-1" \
---ssh-private-key-file-path "/home/ubuntu/bmcs_api_key.pem" \
+--ssh-private-key-file-path "/home/ubuntu/oci_api_key.pem" \
 --tenancy-id "ocid1.tenancy.oc1..XXX" \
 --user-id "ocid1.user.oc1..XXX"
 
-$ hal config storage edit --type oraclebmcs
+$ hal config storage edit --type oci
 
 $ sudo hal deploy apply
 ```
