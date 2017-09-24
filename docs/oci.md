@@ -11,13 +11,13 @@ The following guide will show you how to manually install and configure the OCI 
 
 Copy your API key onto the machine
 
-```
+```bash
 scp -i ~/Keys/spinnaker ~/.oci/oci_api_key.pem ubuntu@PUBLIC_IP:/home/ubuntu/
 ```
 
 Then connect to your instance and use Halyard to install Spinnaker.
 
-```
+```bash
 ssh ubuntu@PUBLIC_IP
 ```
 
@@ -28,7 +28,7 @@ the following steps will install Spinnaker on your Bare Metal Account.
 
 Halyard and Spinnaker (currently) only work with Ubuntu 14.04
 
-```
+```bash
 sudo apt update
 
 curl -O https://raw.githubusercontent.com/spinnaker/halyard/master/install/stable/InstallHalyard.sh
