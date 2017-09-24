@@ -12,13 +12,13 @@ The following guide will show you how to manually install and configure the OCI 
 Copy your API key onto the machine
 
 ```
-$ scp -i ~/Keys/spinnaker ~/.oci/oci_api_key.pem ubuntu@PUBLIC_IP:/home/ubuntu/
+scp -i ~/Keys/spinnaker ~/.oci/oci_api_key.pem ubuntu@PUBLIC_IP:/home/ubuntu/
 ```
 
 Then connect to your instance and use Halyard to install Spinnaker.
 
 ```
-$ ssh ubuntu@PUBLIC_IP
+ssh ubuntu@PUBLIC_IP
 ```
 
 ## Using Halyard
@@ -29,16 +29,16 @@ the following steps will install Spinnaker on your Bare Metal Account.
 Halyard and Spinnaker (currently) only work with Ubuntu 14.04
 
 ```
-$ sudo apt update
+sudo apt update
 
-$ curl -O https://raw.githubusercontent.com/spinnaker/halyard/master/install/stable/InstallHalyard.sh
-$ sudo bash InstallHalyard.sh
+curl -O https://raw.githubusercontent.com/spinnaker/halyard/master/install/stable/InstallHalyard.sh
+sudo bash InstallHalyard.sh
 
-$ hal config version edit --version=1.1.1
+hal config version edit --version=1.1.1
 
-$ hal config provider oraclebmcs enable
+hal config provider oraclebmcs enable
 
-$ hal config provider oraclebmcs account add DEFAULT \
+hal config provider oraclebmcs account add DEFAULT \
 --compartment-id "ocid1.compartment.oc1..XXX" \
 --region "us-phoenix-1" \
 --ssh-private-key-file-path "/home/ubuntu/oci_api_key.pem" \
@@ -46,7 +46,7 @@ $ hal config provider oraclebmcs account add DEFAULT \
 --user-id "ocid1.user.oc1..XXX" \
 --fingerprint "a4:bb:34:43:54:c5..."
 
-$ hal config storage oraclebmcs edit \
+hal config storage oraclebmcs edit \
 --bucket-name "spinnaker" \
 --compartment-id "ocid1.compartment.oc1..XXX" \
 --fingerprint "a4:bb:34:43:54:c5..." \
@@ -56,7 +56,7 @@ $ hal config storage oraclebmcs edit \
 --tenancy-id "ocid1.tenancy.oc1..XXX" \
 --user-id "ocid1.user.oc1..XXX"
 
-$ hal config storage edit --type oci
+hal config storage edit --type oci
 
-$ sudo hal deploy apply
+sudo hal deploy apply
 ```
