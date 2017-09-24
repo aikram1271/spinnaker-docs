@@ -1,17 +1,17 @@
-# Spinnaker, Kubernetes on BMCS
+# Spinnaker+Kubernetes
 
-This guide will show you how to configure and deploy Spinnaker on Oracle's Bare Metal cloud using Halyard.
+This guide will show you how to configure Spinnaker to deploy to Kubernetes on OCI.
 
 ### Prerequisites 
 
 * An Ubuntu 14.04 machine
 * A Kubernetes cluster with a kubeconfig file
 
-If you want to use Oracle BMCS storage, ensure that the private key is in /home/ubuntu/bmcs_api_key.pem
+If you want to use OCI storage, ensure that the private key is in /home/ubuntu/oci_api_key.pem
 
 # Use Oracle BMCS storage
 ```
-scp -i ~/Keys/spinnaker ~/.oraclebmc/bmcs_api_key.pem ubuntu@129.213.29.220:/home/ubuntu/
+scp -i ~/Keys/spinnaker ~/.oci/oci_api_key.pem ubuntu@129.213.29.220:/home/ubuntu/
 ```
 
 Setup Spinnaker to use Kubernetes
@@ -22,32 +22,22 @@ sudo bash InstallHalyard.sh
 
 ## Docker
 
-$ sudo apt-get update
+sudo apt-get update
 
-$ sudo apt-get -y install \
-    linux-image-extra-$(uname -r) \
-    linux-image-extra-virtual
+sudo apt-get -y install linux-image-extra-$(uname -r) linux-image-extra-virtual
 
-$ sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    software-properties-common
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
     
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-$ sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable" 
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" 
    
-$ sudo apt-get update
-
-$ sudo apt-get install docker-ce   
+sudo apt-get update
+sudo apt-get install docker-ce   
 
 # Spinnaker
 
-hal config version edit --version=1.1.2
+hal config version edit --version=XXX
 
 hal config provider docker-registry enable
 
