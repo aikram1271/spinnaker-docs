@@ -2,6 +2,8 @@
 
 This guide will show you how to configure Spinnaker to deploy to Kubernetes on OCI.
 
+![](images/kube.png)
+
 ### Prerequisites 
 
 * An Ubuntu 14.04 machine
