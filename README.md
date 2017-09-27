@@ -7,8 +7,8 @@ Documentation and tutorials for running Spinnaker mostly aimed at OCI (Oracle Cl
 * Developer environment setup
 * Install and configuration
 
-hal config security ui edit --override-base-url https://internal-ip:9000
-hal config security api edit --override-base-url https://internal-ip:8084
+- hal config security ui edit --override-base-url https://internal-ip:9000
+- hal config security api edit --override-base-url https://internal-ip:8084
 
 ## Services
 
